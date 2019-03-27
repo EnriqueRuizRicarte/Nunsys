@@ -2,7 +2,6 @@ package com.nunsys.apiJPA.webrest;
 
 import com.nunsys.apiJPA.domain.Pocion;
 import com.nunsys.apiJPA.service.IPocionService;
-import com.sun.corba.se.impl.oa.poa.POACurrent;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
