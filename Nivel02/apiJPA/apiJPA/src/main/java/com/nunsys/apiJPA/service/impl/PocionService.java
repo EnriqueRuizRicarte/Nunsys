@@ -40,6 +40,6 @@ public class PocionService implements IPocionService {
 
     @Override
     public List<Pocion> findAllEpic(Boolean bool) {
-        return this.pocionRepository.esEpica(bool);
+        return this.pocionRepository.findByEsEpica(bool);
     }
 }
