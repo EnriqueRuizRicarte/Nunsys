@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PocionModule } from './entities/pociones/pocion.module';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PocionModule
+    PocionModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,7 +12,6 @@ public class PocionResource {
 
     private IPocionService pocionService;
 
-
     public PocionResource(IPocionService pocionService) {
         this.pocionService = pocionService;
     }
@@ -39,7 +38,7 @@ public class PocionResource {
         return this.pocionService.save(pocion);
     }
     @DeleteMapping("/pociones/{id}")
-    public void deletePocion(@PathVariable Long id){
+    public void deletePocion(@PathVariable Long id) {
         this.pocionService.delete(id);
     }
     @GetMapping("/pociones/obtenerEpic")

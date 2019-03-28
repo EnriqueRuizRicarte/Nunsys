@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PocionService } from '../entities/pociones/pocion.service';
+import { Pocion } from '../entities/pociones/pocion.model';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  topPociones: Pocion[];
+  constructor(private _pocionService: PocionService) {
+    this._pocionService.getPocionesEpicas().subscribe(
+      result => {
+        this.topPociones = result;
+      },
+      err=>{
+        console.log("getPocionesEpicas"+ err);
+        
+      }
+    );
+  }
 
   ngOnInit() {
   }

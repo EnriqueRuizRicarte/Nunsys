@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PocionService } from '../pocion.service';
+import { Pocion } from '../pocion.model';
 
 @Component({
   selector: 'app-pocion-list',
@@ -7,7 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PocionListComponent implements OnInit {
 
-  constructor() { }
+  pociones:Pocion[];
+
+  constructor(private _pocionService: PocionService) { 
+    
+    this._pocionService.getAllPociones().subscribe(
+      result=>{
+        this.pociones = result;
+        console.log(this.pociones);
+      },
+      err=>{
+        console.log("getAllPociones"+ err);
+      },
+
+    );
+  }
 
   ngOnInit() {
   }

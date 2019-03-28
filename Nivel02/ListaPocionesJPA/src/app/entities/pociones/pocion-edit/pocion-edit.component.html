@@ -1,3 +1,47 @@
-<p>
-  pocion-edit works!
-</p>
+<div class="container">
+  <h1>Ficha de la Pocion</h1>
+  <form #myForm="ngForm">
+
+    <!-- Titulo de Pocion -->
+    <div class="form-group">
+      <label for="titulo">Titulo</label>
+      <input type="text" class="form-control" id="titulo" #titulo [(ngModel)]="pocion.titulo" required>
+      <div [hidden]="(titulo.valid || titulo.pristine" class="alert alert-danger">
+        Este campo es obligatorio
+      </div>
+    </div>
+
+    <!-- Descripcion de la Pocion -->
+    <div class="form-group">
+      <label for="descripcion">Descripcion</label>
+      <input type="text" class="form-control" id="descripcion" #descripcion [(ngModel)]="pocion.descripcion" required>
+      <div [hidden]="(titulo.valid || titulo.pristine" class="alert alert-danger">
+        Este campo es obligatorio
+      </div>
+    </div>
+
+    <!-- Imagen de la Pocion -->
+
+    <div class="form-group">
+      <label class=" form-control-label" for="field_imagen">Imagen</label>
+      <input #file type="file" accept='image/*' (change)="preview(file.files)" />
+      <img [src]="imgURL" height="200" *ngIf="imgURL">
+      <img *ngIf="pocion.imagen && !imgURL" [src]="pocion.imagen" height="200">
+    </div>
+
+    <!-- Es Epica -->
+    <div class="form-group">
+      <label for="esEpica">Es épica</label>
+      <input type="checkbox" class="form-control" id="esEpica" [(ngModel)]="pocion.esEpica">
+    </div>
+
+    <!-- Botonera de acciones -->
+    <div class="botonera">
+      <a [routerLink]="['/pociones']" class="btn btn-secondary">Volver</a>
+      <button type="button" class="btn btn-danger" [disabled]="pocion.id === 0" (click)="eliminarPocion()">Eliminar</button>
+      <button type="button" class="btn btn-succes" [disabled]="!myForm.valid" (click)="guardarPocion()">Enviar</button>
+    </div>
+
+
+  </form>
+</div>

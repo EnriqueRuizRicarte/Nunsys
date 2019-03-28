@@ -12,6 +12,9 @@ import { PocionEditComponent } from './pocion-edit/pocion-edit.component';
   imports: [
     CommonModule,
     PocionRoutingModule
-  ]
+  ],
+  exports:[
+    PocionGridComponent
+  ],
 })
 export class PocionModule { }
